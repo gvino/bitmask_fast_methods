@@ -1,13 +1,15 @@
-# Configure Rails Environment
-ENV["RAILS_ENV"] = "test"
+require "rubygems"
+require 'bundler/setup'
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
-require "rails/test_help"
+require 'test/unit'
+require 'shoulda'
 
-Rails.backtrace_cleaner.remove_silencers!
+require 'active_record'
+require 'bitmask_attributes'
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+require 'bitmask_fast_methods'
 
 # Load fixtures from the engine
 if ActiveSupport::TestCase.method_defined?(:fixture_path=)
